@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/clients/")
 public class ClientController {
-    Client client1 = new Client("John SNOW","johnsnow@adacorp.com");
+//    Client client1 = new Client("John SNOW","johnsnow@adacorp.com");
 
     @GetMapping("get-client")
-    public Client getClientById(){
+    public String getClientById(){
 
-        return client1;
+        return "Method de retour d'un client";
     }
 
     @PostMapping("create-client")
