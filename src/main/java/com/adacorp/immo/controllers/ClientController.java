@@ -1,31 +1,23 @@
 package com.adacorp.immo.controllers;
 
 import com.adacorp.immo.model.Client;
+import com.adacorp.immo.service.ClientService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/clients/")
 public class ClientController {
-    Client client1 = new Client("John SNOW","johnsnow@adacorp.com");
-    @GetMapping("get-client")
-    public Client getClientById(){
 
-        return client1;
+    /*
+ Injection de la dependence du service (ClientService) dans le controleur (ClientContoller)
+ */
+    private final ClientService clientService;
+
+    public ClientController(ClientService clientService) {
+        this.clientService = clientService;
     }
-
-    @PostMapping("create-client")
-    public String createClient(){
-        return "Endpoint pour creer un client";
+    @PostMapping("create")
+    public Client createClient(@RequestBody Client newClient){
+        return clientService.createClient(newClient);
     }
-
-    @PutMapping("edit-client")
-    public String editClient(){
-        return "Endpoint pour modifier un Client";
-    }
-
-    @DeleteMapping("delete-client")
-    public String deleteCLient(){
-        return "Endpoint pour delete un client";
-    }
-
 }
