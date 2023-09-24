@@ -1,10 +1,10 @@
 package com.adacorp.immo.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.*;
 
-@Data
 @Getter
 @Setter
 @AllArgsConstructor
@@ -14,6 +14,7 @@ import lombok.*;
 @Entity
 public class Client {
     @Id
+    @GeneratedValue
     private Integer clientID;
     private String nomComplet;
     private String email;

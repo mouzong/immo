@@ -1,32 +1,32 @@
 package com.adacorp.immo.controllers;
 
+import com.adacorp.immo.dto.ClientRequestDTO;
 import com.adacorp.immo.model.Client;
+import com.adacorp.immo.services.ClientService;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/clients/")
 public class ClientController {
-//    Client client1 = new Client("John SNOW","johnsnow@adacorp.com");
 
-    @GetMapping("get-client")
-    public String getClientById(){
+    private final ClientService clientService;
 
-        return "Method de retour d'un client";
+    public ClientController(ClientService clientService) {
+        this.clientService = clientService;
+    }
+
+    @GetMapping("{clientID}")
+    public Optional<Client> getClientById(@PathVariable("clientID") Integer clientID){
+
+        return clientService.getClientById(clientID);
     }
 
     @PostMapping("create-client")
-    public String createClient(){
-        return "Endpoint pour creer un client";
+    public String createClient(@RequestBody ClientRequestDTO clientAEnregistrer){
+        return clientService.createClient(clientAEnregistrer);
     }
 
-    @PutMapping("edit-client")
-    public String editClient(){
-        return "Endpoint pour modifier un Client";
-    }
-
-    @DeleteMapping("delete-client")
-    public String deleteCLient(){
-        return "Endpoint pour delete un client";
-    }
 
 }
