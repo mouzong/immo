@@ -29,24 +29,15 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-
-		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 			<version>2.2.0</version>
 		</dependency>
-<<<<<<< HEAD
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-=======
->>>>>>> a109e7cbc3f393e768c6178ef3faa850c42fe293
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -58,10 +49,7 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-<<<<<<< HEAD
 
-=======
->>>>>>> a109e7cbc3f393e768c6178ef3faa850c42fe293
 	</dependencies>
 
 	<build>
