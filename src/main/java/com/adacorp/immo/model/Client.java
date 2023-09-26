@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.*;
 
+import java.util.UUID;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -15,7 +17,7 @@ import lombok.*;
 public class Client {
     @Id
     @GeneratedValue
-    private Integer clientID;
+    private UUID clientID;
     private String nomComplet;
     private String email;
 }
