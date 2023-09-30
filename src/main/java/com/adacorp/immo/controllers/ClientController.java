@@ -3,6 +3,7 @@ package com.adacorp.immo.controllers;
 import com.adacorp.immo.dto.ClientRequestDTO;
 import com.adacorp.immo.exceptions.ClientNotFoundException;
 import com.adacorp.immo.model.Client;
+import com.adacorp.immo.model.Facture;
 import com.adacorp.immo.services.ClientService;
 import org.springframework.web.bind.annotation.*;
 
@@ -47,6 +48,7 @@ public class ClientController {
         return clientService.deleteClientById(clientID);
 
     }
+
 
 
 }
