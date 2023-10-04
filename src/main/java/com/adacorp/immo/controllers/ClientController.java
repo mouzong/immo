@@ -3,11 +3,9 @@ package com.adacorp.immo.controllers;
 import com.adacorp.immo.dto.ClientRequestDTO;
 import com.adacorp.immo.exceptions.ClientNotFoundException;
 import com.adacorp.immo.model.Client;
-import com.adacorp.immo.model.Facture;
 import com.adacorp.immo.services.ClientService;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -40,12 +38,21 @@ public class ClientController {
 
     @GetMapping("get-all")
     public List<Client> getAllClients(){
+
         return clientService.getAllClient();
     }
 
     @DeleteMapping("{clientID}")
-    public String deleteClientById(@PathVariable UUID clientID) throws ClientNotFoundException {
+    public String deleteClientById(@PathVariable("clientID") UUID clientID) throws ClientNotFoundException {
         return clientService.deleteClientById(clientID);
+
+    }
+
+    @PutMapping("{clientID}")
+    public Client updateClientById(@PathVariable("clientID") UUID clientID,
+                                   @RequestBody ClientRequestDTO clientAmodifier
+    ) throws ClientNotFoundException {
+        return clientService.updateClientById(clientID, clientAmodifier);
 
     }
 
