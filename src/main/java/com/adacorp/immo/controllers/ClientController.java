@@ -1,6 +1,7 @@
 package com.adacorp.immo.controllers;
 
 import com.adacorp.immo.dto.ClientRequestDTO;
+import com.adacorp.immo.dto.ClientResponseDTO;
 import com.adacorp.immo.exceptions.ClientNotFoundException;
 import com.adacorp.immo.model.Client;
 import com.adacorp.immo.services.ClientService;
@@ -49,8 +50,8 @@ public class ClientController {
     }
 
     @PutMapping("{clientID}")
-    public Client updateClientById(@PathVariable("clientID") UUID clientID,
-                                   @RequestBody ClientRequestDTO clientAmodifier
+    public ClientResponseDTO updateClientById(@PathVariable("clientID") UUID clientID,
+                                              @RequestBody ClientRequestDTO clientAmodifier
     ) throws ClientNotFoundException {
         return clientService.updateClientById(clientID, clientAmodifier);
 
