@@ -50,9 +50,8 @@ public class ClientController {
 
     @PutMapping("{clientID}")
     public Client updateClientById(@PathVariable("clientID") UUID clientID,
-                                   @RequestBody ClientRequestDTO clientAmodifier
-    ) throws ClientNotFoundException {
-        return clientService.updateClientById(clientID, clientAmodifier);
+                                   @RequestBody ClientRequestDTO clientAModifier) throws ClientNotFoundException {
+        return clientService.updateClientById(clientID, clientAModifier);
 
     }
 
