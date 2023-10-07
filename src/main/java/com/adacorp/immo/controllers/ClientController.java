@@ -1,5 +1,6 @@
 package com.adacorp.immo.controllers;
 
+import com.adacorp.immo.dto.ClientReponseDTO;
 import com.adacorp.immo.dto.ClientRequestDTO;
 import com.adacorp.immo.exceptions.ClientNotFoundException;
 import com.adacorp.immo.model.Client;
@@ -22,7 +23,7 @@ public class ClientController {
     }
 
     @GetMapping("{clientID}")
-    public Optional<Client> getClientById(@PathVariable("clientID") UUID clientID){
+    public ClientReponseDTO getClientById(@PathVariable("clientID") UUID clientID){
 
         return clientService.getClientById(clientID);
     }

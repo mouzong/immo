@@ -1,5 +1,6 @@
 package com.adacorp.immo.services;
 
+import com.adacorp.immo.dto.ClientReponseDTO;
 import com.adacorp.immo.dto.ClientRequestDTO;
 import com.adacorp.immo.exceptions.ClientNotFoundException;
 import com.adacorp.immo.model.Client;
@@ -19,14 +20,23 @@ public class ClientService {
         this.clientRepository = clientRepository;
     }
 
-    public Optional<Client> getClientById(UUID clientID) {
-        return clientRepository.findById(clientID);
+    public ClientReponseDTO getClientById(UUID clientID) {
+        Client cl2 = clientRepository.findById(clientID)
+                .orElseThrow(()->new RuntimeException("Le client n'existe pas"));
+        ClientReponseDTO clientreponse = new ClientReponseDTO().builder()
+                .nomComplet(cl2.getNomComplet())
+                .email(cl2.getEmail())
+                .username(cl2.getUsername())
+                .build();
+        return clientreponse;
     }
 
     public String createClient(ClientRequestDTO clientAEnregistrer) {
        Client  cl1 = new Client();
        cl1.setNomComplet(clientAEnregistrer.getNomComplet());
        cl1.setEmail(clientAEnregistrer.getEmail());
+       cl1.setUsername(clientAEnregistrer.getUsername());
+       cl1.setPassword(clientAEnregistrer.getPassword());
 
        Client saved = clientRepository.save(cl1);
         return "Client enregistré avec succès : "+ saved;
