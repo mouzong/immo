@@ -6,12 +6,10 @@ import com.adacorp.immo.exceptions.ClientNotFoundException;
 import com.adacorp.immo.model.Client;
 import com.adacorp.immo.services.ClientService;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -54,16 +52,16 @@ public class ClientController {
     }
 
     @PutMapping("{clientID}")
-<<<<<<< HEAD
-    public Client updateClientById(@PathVariable("clientID") UUID clientID,
-                                   @RequestBody ClientRequestDTO clientAModifier) throws ClientNotFoundException {
+//<<<<<<< HEAD
+    public ClientResponseDTO updateClientById(@PathVariable("clientID") UUID clientID,
+                                              @RequestBody ClientRequestDTO clientAModifier) throws ClientNotFoundException {
         return clientService.updateClientById(clientID, clientAModifier);
-=======
-    public ResponseEntity<ClientResponseDTO> updateClientById(@PathVariable("clientID") UUID clientID,
-                                                             @RequestBody ClientRequestDTO clientAmodifier
-    ) throws ClientNotFoundException {
-        return new ResponseEntity<>(clientService.updateClientById(clientID, clientAmodifier), HttpStatus.OK );
->>>>>>> 418bd96356e9f59ae6499e9567a0abd0b9215795
+//=======
+   // public ResponseEntity<ClientResponseDTO> updateClientById(@PathVariable("clientID") UUID clientID,
+  //                                                           @RequestBody ClientRequestDTO clientAModifier
+ //   ) throws ClientNotFoundException {
+ //       return new ResponseEntity<>(clientService.updateClientById(clientID, clientAModifier), HttpStatus.OK );
+//>>>>>>> 418bd96356e9f59ae6499e9567a0abd0b9215795
 
     }
 
