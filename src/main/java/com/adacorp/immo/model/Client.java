@@ -20,5 +20,7 @@ public class Client {
     private UUID clientID;
     private String nomComplet;
     private String email;
+    private String username;
+    private String password;
     //private boolean isDeleted;
 }

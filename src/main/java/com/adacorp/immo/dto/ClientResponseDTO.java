@@ -1,15 +1,16 @@
 package com.adacorp.immo.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-public class ClientRequestDTO {
+@AllArgsConstructor
+@NoArgsConstructor
+public class ClientResponseDTO {
     private String nomComplet;
     private String email;
     private String username;
-    private String password;
-
-
 }
