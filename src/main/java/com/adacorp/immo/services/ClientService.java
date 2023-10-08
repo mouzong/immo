@@ -19,8 +19,17 @@ public class ClientService {
         this.clientRepository = clientRepository;
     }
 
-    public Optional<Client> getClientById(UUID clientID) {
-        return clientRepository.findById(clientID);
+    public ClientResponseDTO getClientById(UUID clientID) throws ClientNotFoundException{
+        Client cl1 = clientRepository.findById(clientID)
+                .orElseThrow(() -> new ClientNotFoundException("Client avec l'id : "+clientID+" introuvable"));
+
+        ClientResponseDTO cl1DTO = new ClientResponseDTO().builder()
+                .nomComplet(cl1.getNomComplet())
+                .email(cl1.getEmail())
+                .username(cl1.getUsername())
+                .build();
+
+        return cl1DTO;
     }
 
     public String createClient(ClientRequestDTO clientAEnregistrer) {
@@ -35,6 +44,7 @@ public class ClientService {
     }
 
     public List<Client> getAllClient() {
+
         return clientRepository.findAll();
     }
 

@@ -5,6 +5,9 @@ import com.adacorp.immo.dto.ClientResponseDTO;
 import com.adacorp.immo.exceptions.ClientNotFoundException;
 import com.adacorp.immo.model.Client;
 import com.adacorp.immo.services.ClientService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,7 +25,8 @@ public class ClientController {
     }
 
     @GetMapping("{clientID}")
-    public Optional<Client> getClientById(@PathVariable("clientID") UUID clientID){
+    public ClientResponseDTO getClientById(@PathVariable("clientID") UUID clientID)
+            throws ClientNotFoundException{
 
         return clientService.getClientById(clientID);
     }
@@ -50,10 +54,10 @@ public class ClientController {
     }
 
     @PutMapping("{clientID}")
-    public ClientResponseDTO updateClientById(@PathVariable("clientID") UUID clientID,
-                                              @RequestBody ClientRequestDTO clientAmodifier
+    public ResponseEntity<ClientResponseDTO> updateClientById(@PathVariable("clientID") UUID clientID,
+                                                             @RequestBody ClientRequestDTO clientAmodifier
     ) throws ClientNotFoundException {
-        return clientService.updateClientById(clientID, clientAmodifier);
+        return new ResponseEntity<>(clientService.updateClientById(clientID, clientAmodifier), HttpStatus.OK );
 
     }
 
