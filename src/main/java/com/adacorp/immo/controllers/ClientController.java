@@ -52,16 +52,12 @@ public class ClientController {
     }
 
     @PutMapping("{clientID}")
-//<<<<<<< HEAD
     public ClientResponseDTO updateClientById(@PathVariable("clientID") UUID clientID,
                                               @RequestBody ClientRequestDTO clientAModifier) throws ClientNotFoundException {
         return clientService.updateClientById(clientID, clientAModifier);
-//=======
-   // public ResponseEntity<ClientResponseDTO> updateClientById(@PathVariable("clientID") UUID clientID,
-  //                                                           @RequestBody ClientRequestDTO clientAModifier
- //   ) throws ClientNotFoundException {
- //       return new ResponseEntity<>(clientService.updateClientById(clientID, clientAModifier), HttpStatus.OK );
-//>>>>>>> 418bd96356e9f59ae6499e9567a0abd0b9215795
+   //     public ResponseEntity<ClientResponseDTO> updateClientById(@PathVariable("clientID") UUID clientID
+   //                                                                    @RequestBody ClientRequestDTO clientAModifier
+  //) throws ClientNotFoundException {return new ResponseEntity<>(clientService.updateClientById(clientID, clientAModifier), HttpStatus.OK );
 
     }
 

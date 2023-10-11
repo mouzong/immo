@@ -75,7 +75,6 @@ public class ClientService {
                 .username(clientModifie.getUsername())
                 .email(clientModifie.getEmail())
                 .build();
-
         return clientResponseDTO;
     }
 }
