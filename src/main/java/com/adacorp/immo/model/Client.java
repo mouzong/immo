@@ -3,8 +3,10 @@ package com.adacorp.immo.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -22,5 +24,8 @@ public class Client {
     private String email;
     private String username;
     private String password;
+
+    @OneToMany(mappedBy = "clientModel")
+    private List<Facture> factureList;
     //private boolean isDeleted;
 }

@@ -1,5 +1,6 @@
 package com.adacorp.immo.services;
 
+import com.adacorp.immo.dto.FactureRequestDTO;
 import com.adacorp.immo.model.Facture;
 import com.adacorp.immo.repositories.FactureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +12,14 @@ public class FactureService {
 
     @Autowired
     public FactureService(FactureRepository factureRepository) {
+
         this.factureRepository = factureRepository;
     }
 
-    public Facture createFacture(Facture facture) {
-        return factureRepository.save(facture);
+    public Facture createFacture(FactureRequestDTO facture) {
+        Facture facture1 = new Facture().builder()
+                .montantFacture(facture.getMontantFacture())
+                .build();
+        return factureRepository.save(facture1);
     }
 }

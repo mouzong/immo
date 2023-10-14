@@ -28,7 +28,6 @@ public class ClientService {
                 .email(cl1.getEmail())
                 .username(cl1.getUsername())
                 .build();
-
         return cl1DTO;
     }
 

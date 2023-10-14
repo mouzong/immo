@@ -1,5 +1,6 @@
 package com.adacorp.immo.controllers;
 
+import com.adacorp.immo.dto.FactureRequestDTO;
 import com.adacorp.immo.model.Facture;
 import com.adacorp.immo.services.FactureService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,8 @@ public class FactureController {
      * @return la facture cree est retourne en reponse de la requete
      */
     @PostMapping("/create")
-    public Facture createFacture(@RequestBody Facture facture){
+    public Facture createFacture(@RequestBody FactureRequestDTO facture){
+
         return factureService.createFacture(facture);
     }
 
