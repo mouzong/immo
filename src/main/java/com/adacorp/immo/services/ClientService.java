@@ -8,7 +8,6 @@ import com.adacorp.immo.repositories.ClientRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -21,7 +20,8 @@ public class ClientService {
 
     public ClientResponseDTO getClientById(UUID clientID) throws ClientNotFoundException{
         Client cl1 = clientRepository.findById(clientID)
-                .orElseThrow(() -> new ClientNotFoundException("Client avec l'id : "+clientID+" introuvable"));
+                .orElseThrow(() -> new ClientNotFoundException("Client avec l'id : "+clientID+
+                        " introuvable"));
 
         ClientResponseDTO cl1DTO = new ClientResponseDTO().builder()
                 .nomComplet(cl1.getNomComplet())
@@ -59,7 +59,8 @@ public class ClientService {
         return "Client avec l'ID: "+ clientID + " a été supprimé avec succès";
     }
 
-    public ClientResponseDTO updateClientById(UUID clientID, ClientRequestDTO donneesClient) throws ClientNotFoundException {
+    public ClientResponseDTO updateClientById(UUID clientID, ClientRequestDTO donneesClient)
+            throws ClientNotFoundException {
 
         Client clientAModifier = clientRepository.findById(clientID)
                 .orElseThrow(() -> new ClientNotFoundException("Client avec id: "+ clientID +
