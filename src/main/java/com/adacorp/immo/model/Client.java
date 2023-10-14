@@ -1,5 +1,6 @@
 package com.adacorp.immo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -25,6 +26,7 @@ public class Client {
     private String username;
     private String password;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "clientModel")
     private List<Facture> factureList;
     //private boolean isDeleted;
