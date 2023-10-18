@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProduitResponseDTO {
-    private String nomProduit;
+    private String nom_produit;
     private String description;
     private double prix;
     private double stock;

@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class FactureRequestDTO {
-    private double montantFacture;
+    private double montant_facture;
 
 }

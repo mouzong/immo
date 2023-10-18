@@ -22,7 +22,7 @@ public class ProduitService {
                 .orElseThrow(()-> new ProduitNotFoundException("Produit avec l'id :"+produitID+ "Introuvable"));
 
         ProduitResponseDTO pdtDTO = new ProduitResponseDTO().builder()
-                .nomProduit(pdt.getNomProduit())
+                .nom_produit(pdt.getNom_produit())
                 .description(pdt.getDescription())
                 .prix(pdt.getPrix())
                 .stock(pdt.getStock())
@@ -33,7 +33,7 @@ public class ProduitService {
 
     public String createProduit(ProduitResponseDTO produitAEnregister){
         Produit pdt = new Produit();
-        pdt.setNomProduit(produitAEnregister.getNomProduit());
+        pdt.setNom_produit(produitAEnregister.getNom_produit());
         pdt.setDescription(produitAEnregister.getDescription());
         pdt.setPrix(produitAEnregister.getPrix());
         pdt.setStock(produitAEnregister.getStock());

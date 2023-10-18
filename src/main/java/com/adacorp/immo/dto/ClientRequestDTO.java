@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 @Builder
 public class ClientRequestDTO {
-    private String nomComplet;
+    private String nom_complet;
     private String email;
     private String username;
     private String password;

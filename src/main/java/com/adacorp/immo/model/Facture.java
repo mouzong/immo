@@ -16,11 +16,12 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Table(name = "facture")
 public class Facture {
     @Id
     @GeneratedValue
-    private UUID factureId;
-    private double montantFacture;
+    private UUID factureID;
+    private double montant_facture;
 
     @ManyToOne
     @JoinColumn(name = "clientID", nullable = false)

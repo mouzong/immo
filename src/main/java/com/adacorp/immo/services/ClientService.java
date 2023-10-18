@@ -15,6 +15,7 @@ public class ClientService {
     private final ClientRepository clientRepository;
 
     public ClientService(ClientRepository clientRepository) {
+
         this.clientRepository = clientRepository;
     }
 
@@ -24,7 +25,7 @@ public class ClientService {
                         " introuvable"));
 
         ClientResponseDTO cl1DTO = new ClientResponseDTO().builder()
-                .nomComplet(cl1.getNomComplet())
+                .nom_complet(cl1.getNom_complet())
                 .email(cl1.getEmail())
                 .username(cl1.getUsername())
                 .build();
@@ -33,7 +34,7 @@ public class ClientService {
 
     public String createClient(ClientRequestDTO clientAEnregistrer) {
        Client  cl1 = new Client();
-       cl1.setNomComplet(clientAEnregistrer.getNomComplet());
+       cl1.setNom_complet(clientAEnregistrer.getNom_complet());
        cl1.setEmail(clientAEnregistrer.getEmail());
        cl1.setUsername(clientAEnregistrer.getUsername());
        cl1.setPassword(clientAEnregistrer.getPassword());
@@ -66,12 +67,12 @@ public class ClientService {
                         " Introuvable "));
 
         clientAModifier.setEmail(donneesClient.getEmail());
-        clientAModifier.setNomComplet(donneesClient.getNomComplet());
+        clientAModifier.setNom_complet(donneesClient.getNom_complet());
 
         Client clientModifie = clientRepository.save(clientAModifier);
 
         ClientResponseDTO clientResponseDTO = new ClientResponseDTO().builder()
-                .nomComplet(clientModifie.getNomComplet())
+                .nom_complet(clientModifie.getNom_complet())
                 .username(clientModifie.getUsername())
                 .email(clientModifie.getEmail())
                 .build();
