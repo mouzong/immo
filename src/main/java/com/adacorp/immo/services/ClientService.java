@@ -39,7 +39,7 @@ public class ClientService {
        cl1.setUsername(clientAEnregistrer.getUsername());
        cl1.setPassword(clientAEnregistrer.getPassword());
 
-       Client saved = clientRepository.save(cl1);
+        Client saved = clientRepository.save(cl1);
         return "Client enregistré avec succès : "+ saved;
     }
 
